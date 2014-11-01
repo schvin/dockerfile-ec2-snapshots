@@ -2,9 +2,9 @@ dockerfile-ec2-snapshots
 
 Simply enumerate your volumes, snapshot each, and keep last x snapshots (deleting older ones).
 
-To build:
+To pull:
 
-  `docker build -t ec2-snapshots schvin/ec2-snapshots`
+  `docker pull schvin/ec2-snapshots`
 
 To run:
 
