@@ -4,7 +4,7 @@ Simply enumerate your volumes, snapshot each, and keep last x snapshots (deletin
 
 To build:
 
-  `docker build -t ec2-snap schvin/ec2-snapshots`
+  `docker build -t ec2-snapshots schvin/ec2-snapshots`
 
 To run:
 

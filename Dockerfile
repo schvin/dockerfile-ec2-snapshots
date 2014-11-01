@@ -3,6 +3,7 @@ MAINTAINER George Lewis <schvin@schvin.net>
 
 ENV REFRESHED_AT 2014-11-01
 ENV EC2_HOME /s/ec2-api-tools
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre/
 
 RUN apt-get update -y && apt-get install -y perl curl unzip
 
