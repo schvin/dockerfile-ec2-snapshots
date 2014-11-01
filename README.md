@@ -8,7 +8,7 @@ To build:
 
 To run:
 
-  `docker run -e AWS_ACCESS_KEY=xxxx -e AWS_SECRET_KEY=xxxx -it schvin/ec2-snapshots`
+  `docker run -e TOTAL_SNAPSHOTS=25 -e AWS_ACCESS_KEY=xxxx -e AWS_SECRET_KEY=xxxx -it schvin/ec2-snapshots`
 
 To do:
 

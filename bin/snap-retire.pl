@@ -1,8 +1,8 @@
 #!/usr/bin/perl -I/s/ec2/lib
 #
-# delete oldest quantity of snapshots that will permit new snapshots
+# Delete oldest quantity of snapshots that will permit new snapshots
 # of all filesystems to come under the amazon 500 limit (reduced
-# to 50 due to costs)
+# to default of 50 due to costs).
 # 
 # XXX logger instead of print... logger util to email?
 #
@@ -18,17 +18,23 @@ require ec2;
 my $count;
 my $delta;
 my $i;
-my $out;
-my $snapshots;
-my %s;
 my @oldest;
+my $out;
+my %s;
+my $snapshots;
+my $total;
+
+if($ENV{'TOTAL_SNAPSHOTS'} && $ENV{'TOTAL_SNAPSHOTS'} =~ /^\d+$/) {
+  $total = $ENV{'TOTAL_SNAPSHOTS'};
+} else {
+  $total = 50;
+}
 
 print "preparing to retire old snapshots...\n";
 
 $count = ec2::getvolumes();
 $snapshots = ec2::getsnapshots();
-$delta = ($#{$snapshots} + 1) + ($#{$count} + 1) - 50;
-#$delta = ($#{$snapshots} + 1) - ($#{$count} + 1);
+$delta = ($#{$snapshots} + 1) + ($#{$count} + 1) - $total;
 
 print "found ", $#{$count} + 1, " volumes to backup...\n";
 print "found ", $#{$snapshots} + 1, " current snapshots...\n";
@@ -47,3 +53,5 @@ for($i = 0; $i <= ($delta - 1); $i++) {
   $out = ec2::deletesnapshot($oldest[$i]);
   print "output: $out";
 }
+
+exit(0);

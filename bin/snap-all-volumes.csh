@@ -1,8 +1,6 @@
 #!/bin/csh
 
-#set JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
-
-#/s/ec2/bin/snap-retire.pl
+/s/ec2/bin/snap-retire.pl
 
 foreach vol (`$EC2_HOME/bin/ec2-describe-volumes | awk '/^VOLUME/ { print $2 }' `)
   echo "snapshotting $vol..."
