@@ -1,7 +1,7 @@
 FROM java:8
 MAINTAINER George Lewis <schvin@schvin.net>
 
-ENV REFRESHED_AT 2014-12-27
+ENV REFRESHED_AT 2016-09-07
 ENV EC2_HOME /s/ec2/ec2-api-tools
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/jre/
 
